@@ -1,0 +1,41 @@
+.container {
+    height: 50px;
+    width:250px;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid rgb(227, 214, 214);
+    border-radius: 15px;
+    margin: 0px 0px 35px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 5px 0px rgba(253, 247, 247, 0.623);
+  }
+  .inputcls {
+    width: 50%;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+  }
+  .btncls {
+    display: flex;
+    align-items: center;
+    width: 60px;
+    background-color: transparent;
+    color: white;
+    font-weight: 500;
+    padding: 15px;
+    border: 0px solid black;
+    cursor: pointer;
+    text-align: center;
+  }
+  .container:hover{
+
+    transform: scale(1.1);
+  }
+
+  
+  
+  
