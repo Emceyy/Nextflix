@@ -1,10 +1,11 @@
 "use client"
 
 import styles from './card.module.css';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FavoriteContext } from '../../context/FavoriteContext';
 import Image from 'next/image';
 import { signOut, useSession } from "next-auth/react";
+
 
 export interface CardProps {
     movie: {
@@ -20,7 +21,29 @@ export interface CardProps {
 
  const Card = ({ movie }: CardProps) => {
 
-    const { dispatch } = useContext(FavoriteContext);
+    const { state, dispatch } = useContext(FavoriteContext);
+
+    const isAlreadyAdded = state.favorites.some(fav => fav.id === movie.id);
+
+    const [isAdded, setIsAdded] = useState(isAlreadyAdded);
+    
+
+    const handleToggle = () => {
+        if (isAdded) {
+          
+          dispatch({ type: "REMOVE_MOVIE", payload: movie });
+        } else {
+          
+          dispatch({ type: "ADD_MOVIE", payload: movie });
+        }
+       
+        setIsAdded(!isAdded);
+      };
+ 
+    const handleUnauthenticatedClick = () => {
+        
+        alert("You need to log in to add this movie to your list.");
+    }
 
     const session = useSession();
 
@@ -43,14 +66,17 @@ export interface CardProps {
                     ...
                     </p>
 
-                    { session.status === "unauthenticated" && 
-                        (<button
-                            className={styles.addButton}
-                            onClick={() => dispatch({ type: 'ADD_MOVIE', payload: movie })}
-                        >
-                            ✓
-                        </button>)
-                    }
+                    {session.status === "authenticated" ? (
+        
+                        <button className={styles.addButton} onClick={handleToggle}>
+                             {isAlreadyAdded  ? "✓" : "+"}
+                         </button>
+                        ) : (
+        
+                        <button className={styles.addButton}  onClick={handleUnauthenticatedClick} >
+                             +
+                        </button>
+                        )}
                     
                 </div>
             </div>

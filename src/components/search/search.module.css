@@ -10,6 +10,9 @@
     position: relative;
     box-shadow: 2px 2px 5px 0px rgba(253, 247, 247, 0.623);
   }
+  .container2{
+    display: none;
+  }
   .inputcls {
     width: 50%;
     background-color: transparent;

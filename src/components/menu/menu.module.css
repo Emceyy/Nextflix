@@ -6,6 +6,10 @@
   display: flex;
 }
 
+.mn:hover{
+  background-color: #5ea7d4;
+}
+
 .mn {
     width:max-content;
     display: flex;

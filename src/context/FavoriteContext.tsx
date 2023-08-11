@@ -27,7 +27,7 @@ const INITIAL_STATE: State = {
 const FavoriteReducer = (state: State, action: FavoriteAction) => {
     switch (action.type) {
         case 'ADD_MOVIE':
-            return { favorites: [...state.favorites, action.payload] };
+            return { favorites: [...state.favorites, action.payload] };       
         case 'REMOVE_MOVIE':
             return {
                 favorites: [...state.favorites.filter((movie) => movie.id !== action.payload?.id)],

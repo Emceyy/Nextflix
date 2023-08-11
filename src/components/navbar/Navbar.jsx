@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import React, { useContext, useState, useEffect  }from "react";
+import React, { useContext, useState, useEffect }from "react";
 import styles from "./navbar.module.css";
 import { Context } from "@/context/DarkMode";
 import DarkMode from "../darkmode/DarkMode";
@@ -10,12 +10,15 @@ import Image from "next/image";
 import Menu from "../menu/Menu";
 import Search from "../search/Search";
 import Genre from "../genre/Genre";
+import { usePathname } from 'next/navigation';
+
+
 
 const links = [
     {
         id: 1,
-        title: "Blog",
-        url: "/blog",
+        title: "Discussion",
+        url: "/discussion",
     },
    
     {
@@ -27,6 +30,8 @@ const links = [
 
 export default function Navbar() {
 
+var pathname = usePathname(); 
+
 const { toggle, mode } = useContext(Context);
 
 const session = useSession();
@@ -37,10 +42,6 @@ const toggleClick = () =>{
     setclick(!click)
 
 }
-
-const handleClick = () => {
-    window.location.reload();
-  };
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -62,21 +63,23 @@ const handleClick = () => {
     };
   }, []);
 
+
   return (
-   <div className={`${styles.container0} ${scrolled ? (mode == 'light' ? styles.scrollight : styles.scroll) : ''}`}>
-    <div className={styles.container}>
+   <div className={`${styles.container0} ${scrolled ? (mode == 'light' ? styles.scrollight : styles.scroll) : ""}`}>
+    
+    <div className={`${pathname == "/" ? styles.container : styles.container2}`}>
         <Link href="/">
-            <h1 className={styles.nextflix} onClick={handleClick}>NEXTFLIX</h1>
+            <h1 className={`${pathname == "/" ? styles.nextflix : styles.nextflix2}`}>NEXTFLIX</h1>
         </Link>
-        <div className={styles.links}>
+        <div className={`${pathname == "/" ? styles.links : styles.links2}`}>
 
             {links.map(link => (
-                <Link key={link.id} href={link.url} className={styles.link}>
+                <Link key={link.id} href={link.url} className={ styles.link}  shallow>
                     {link.title}
                 </Link>
             ))}
-            { session.status === "unauthenticated" && 
-            <Link key="5" href="/my-list" className={styles.link}>
+            { session.status === "authenticated" && 
+            <Link key="5" href="/my-list" className={styles.link} >
                     My List
                 </Link>
             }
@@ -85,7 +88,7 @@ const handleClick = () => {
             </div>
         </div>
 
-        <div onClick={toggleClick} className={styles.menu}>
+        <div onClick={toggleClick} className={`${pathname == "/" ? styles.menu : styles.menu2}`}>
         <Menu isClick={click}/>
         </div>
 
@@ -97,9 +100,9 @@ const handleClick = () => {
        <Genre/>
 
         {session.status === "authenticated" ? (
-            <button  onClick={signOut} className={styles.btn}>log out</button>
+            <button  onClick={signOut} className={`${pathname == "/" ? styles.btn : styles.btn2}`}>log out</button>
         ) : (<Link key="3" href="/login">
-            <button  className={styles.btn}>log in</button>
+            <button  className={`${pathname == "/" ? styles.btn : styles.btn2}`}>log in</button>
          </Link>
          )}
         

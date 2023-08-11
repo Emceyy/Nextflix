@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
     <div className={styles.container}>
-      <div>©2023 EMCEY. All rights reserved.</div>
+      <div className={styles.text}>©2023 EMCEY. All rights reserved.</div>
       <div className={styles.social}>
         <Image src="/../public/mail.png" width={20} height={20} className={styles.icon} alt="mail" />
         <Image src="/../public/twiter.png" width={20} height={20} className={styles.icon} alt="twiter" />

@@ -1,6 +1,11 @@
 .container {
+  max-width: 1366px;
+  min-height: 100vh;
+  margin:50px auto 50px;
+  padding: 0 ;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .posterContainer{
@@ -14,7 +19,19 @@
 }
 
 .cardcontainer{
- display: flex;
- justify-content: space-between;
-  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap:20px;
+    
+}
+
+@media (max-width: 517px) {
+  .container {
+    width:100%;
+  }
+
+  
+  
 }

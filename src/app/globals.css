@@ -38,9 +38,9 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-} */
+} 
 
-/* @media (prefers-color-scheme: dark) {
+ @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -122,4 +122,15 @@ a {
 
 input::placeholder {
   color: #4ea77d;
+}
+
+textarea::placeholder {
+  color: #4ea77d;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }

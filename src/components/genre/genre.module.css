@@ -1,8 +1,12 @@
-
-  .container{
+.container{
     width:200px;
     border-radius: 50px;
 }
+
+.container2{
+  display: none;
+}
+
 
 @media(max-width: 567px){
   .container{

@@ -1,0 +1,121 @@
+
+  .dumb{
+    height:125px;
+  }
+
+  
+  @media (max-width: 614px) {
+    .dumb  {
+      height:250px;
+    }
+  }
+
+.title {
+  font-size: 400%;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+@media(max-width:970px){
+  .title{
+    font-size: 300%;
+  }
+}
+
+@media (max-width:486px) {
+  .title{
+    font-size: 250%;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.imgContainer {
+  flex: 1.5;
+  height: 500px;
+  position: relative;
+  margin-bottom: 25px;
+  margin-left:25px;
+}
+
+@media(max-width:755px){
+  .imgContainer{
+    display: none;
+  }
+}
+
+@media(max-width:755px){
+  .image{
+    display: none;
+  }
+}
+
+
+.image {
+  object-fit: contain;
+  animation: move 3s infinite ease alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(-15px) scale(0.9);
+}
+  to {
+    transform: translateY(0px) scale(1.03);
+  }
+}
+
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-right:50px;
+}
+
+@media (max-width:860px) {
+  .form{
+    height:250px;
+  }
+}
+
+@media (max-width:755px) {
+  .form{
+  margin-left:50px;
+  margin-bottom: 50px;
+  }
+}
+
+@media (max-width:486px) {
+  .form{
+    margin-left:0;
+  }
+}
+
+
+.textArea, .name, .email {
+  padding: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #bbb;
+  border: 3px solid #bbb;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.textArea {
+  resize: none;
+}
+
+
+.textArea:focus, .name:focus, .email:focus {
+    border-color: rgb(32, 110, 219);
+  }
+  
+

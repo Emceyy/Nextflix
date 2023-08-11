@@ -33,9 +33,11 @@ export interface Movie {
     }, [genre, sortBy, query]);
     return (
         <div className={styles.container}>
-              {movies.map((movie) => (
-                <Card movie={movie} key={movie.id} />
-                ))}
+               {movies.length > 0 ? (
+                movies.map((movie) => <Card movie={movie} key={movie.id} />)
+                    ) : (
+                <p className={styles.notfound}>Your search was not found please try again</p>
+            )}
         </div>
     );
 };

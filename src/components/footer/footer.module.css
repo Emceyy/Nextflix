@@ -3,7 +3,7 @@
     font-size: 18px;
     display: flex;
     align-items: center;
-    margin-left:50px;
+    margin-top:25px;
     position: relative;
   }
   
@@ -22,6 +22,10 @@
     top: 0;
   }
   
+  .text{
+    margin:15px;
+  }
+
   .icon {
     opacity: 0.8;
     cursor: pointer;
@@ -49,7 +53,7 @@
   @media (max-width: 835px) {
     .social  {
       position: relative;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
       
     }
     

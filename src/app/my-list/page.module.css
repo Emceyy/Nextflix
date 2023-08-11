@@ -1,0 +1,31 @@
+.container{
+    max-width: 1366px;
+    min-height: 100vh;
+    margin:50px auto 50px;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.cardcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap:20px;
+}
+.dumb{
+    height: 100px;
+}
+
+.listempty{
+    font-size: 300%;
+    display: flex;
+    justify-content: center;
+}
+
+@media(max-width: 614px){
+    .dumb{
+        height: 150px;
+    }
+}
+

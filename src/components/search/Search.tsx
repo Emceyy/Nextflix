@@ -2,12 +2,15 @@ import styles from './search.module.css';
 import React, { useContext, useState } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 import Image from 'next/image'
+import { usePathname } from 'next/navigation';
 
 export interface SearchProps {
     className?: string;
 }
 
- const Search = ({ className }: SearchProps) => {
+const Search = ({ className }: SearchProps) => {
+
+    const pathname = usePathname(); 
     const [input, setInput] = useState('');
     const { dispatch } = useContext(SearchContext);
 
@@ -17,7 +20,7 @@ export interface SearchProps {
         setInput("");
     };
     return (
-        <form className={styles.container} onSubmit={handleSubmit}>
+        <form className={`${className} ${pathname == "/" ? styles.container : styles.container2}`} onSubmit={handleSubmit}>
             <input
                 value={input}
                 className={styles.inputcls}

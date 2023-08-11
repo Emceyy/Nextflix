@@ -3,10 +3,13 @@ import styles from './genre.module.css';
 import { Context } from '@/context/DarkMode';
 import { SearchContext } from '../../context/SearchContext';
 import Select from 'react-select';
-
+import { usePathname } from 'next/navigation';
 
 
 export default function Genre() {
+
+  var pathname = usePathname(); 
+  console.log(pathname);
 
   const { dispatch} = useContext(SearchContext);
 
@@ -30,7 +33,7 @@ export default function Genre() {
   
 
   return (
-    <div className={styles.container}>
+    <div className={` ${pathname == "/" ? styles.container : styles.container2}`}>
       <Select
         id="select"
         onChange={handleChange}

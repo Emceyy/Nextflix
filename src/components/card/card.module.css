@@ -8,6 +8,12 @@
     overflow: hidden;
     cursor: pointer;
   }
+
+  /* @media (max-width: 516px){
+    .container {
+      margin-left:75px;
+  }
+  } */
   
   .cardi {
     width: 100%;

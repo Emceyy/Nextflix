@@ -7,6 +7,14 @@
   transition: background 0.5s ease-in-out;
 }
 
+.pages{
+  position: relative;
+  top:0;
+  width:100vw;
+  background-color: inherit;
+  transition: background 0.5s ease-in-out;
+}
+
 .scroll {
   background: black;
 }
@@ -16,6 +24,7 @@
 }
 
 .container {
+  margin-bottom: 20px;
     position: relative;
     height: 100%;
     display: flex;
@@ -23,6 +32,22 @@
   }
   @media (max-width: 955px) {
     .container  {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .container2 {
+    margin-bottom: 20px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 614px) {
+    .container2  {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -39,6 +64,19 @@
   color: red;
   text-align: center;
   }
+  .nextflix2{
+  font-family: sans-serif;
+  font-size: 350%;
+  padding: 10px;
+  margin-left: 15px;
+  color: red;
+  text-align: center;
+  }
+  @media (max-width: 800px) {
+    .nextflix2  {
+      letter-spacing: 1rem;
+    }
+  }
   @media (max-width: 955px) {
     .nextflix  {
       letter-spacing: 1rem;
@@ -53,19 +91,39 @@
     gap: 20px;
     padding: 15px;
   }
+  .links2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+  }
   .link{
     color:inherit;
   }
   .link:hover{
     color: #ccc;
   }
-  @media (max-width: 1140px){
+  @media (max-width: 1165px){
     .links{
+      display: none;
+    }
+  }
+  @media (max-width: 800px){
+    .links2{
       display: none;
     }
   }
   @media (max-width: 955px){
     .links{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+    }
+  }
+  @media (max-width: 614px){
+    .links2{
       display: flex;
       align-items: center;
       justify-content: center;
@@ -109,6 +167,15 @@
     width: max-content;
     margin-left:15px;
   }
+  .btn2{
+    padding: 10px;
+    cursor: pointer;
+    background-color: #53c28b;
+    border: none;
+    border-radius: 5px;
+    width: max-content;
+    margin-right: 45px;
+  }
   .btn:hover{
     background-color: #4ea77d;
   }
@@ -117,13 +184,27 @@
 .menu{
   display: none;
 }
-@media (max-width: 1140px){
+.menu2{
+  display: none;
+}
+@media (max-width: 1165px){
   .menu{
     display: block;
   }
 }
 @media (max-width: 955px){
   .menu{
+    display: none;
+  }
+}
+@media (max-width: 800px){
+  .menu2{
+    display:block;
+    
+  }
+}
+@media (max-width: 614px){
+  .menu2{
     display: none;
   }
 }
