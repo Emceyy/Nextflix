@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nextflix
+
+Nextflix is a web app that allows you to discover and create your own movie lists, as well as read articles from in the discussion section. You can also create your own movie lists and discover new titles based on your preferences. Nextflix is powered by Next.js, a React framework that supports server-side rendering and static site generation. Nextflix also uses Next-Auth for authentication, MongoDB for database, and Axios for fetching data from external APIs. Nextflix is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License, which means you can use, modify, and share it for non-commercial purposes, as long as you give credit to the original author.
 
 ## Getting Started
 
-First, run the development server:
+To run Nextflix locally, you need to have Node.js and MongoDB installed on your machine. Then, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. Clone this repository
+2. Install the dependencies: `npm install`
+3. Create a `.env` file in the root directory and add the following variables:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   - `MONGODB_URI`: The connection string to your MongoDB database
+   - `NEXTAUTH_URL`: The base URL of your application (e.g., `http://localhost:3000`)
+   - `MOVIE_API_KEY`: The API key for the movie data source (e.g., https://www.themoviedb.org/)
+4. Start the development server: `npm run dev`
+5. Open your browser and go to `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="public/home-movies.png" width="500" height="300" /> <img src="public/discussion.png" width="500" height="300" /> <img src="public/contact.png" width="500" height="300" /> <img src="public/login.png" width="500" height="300" /> <img src="public/my-list.png" width="500" height="300" />
