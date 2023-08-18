@@ -6,7 +6,6 @@ import styles from "./navbar.module.css";
 import { Context } from "@/context/DarkMode";
 import DarkMode from "../darkmode/DarkMode";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import Menu from "../menu/Menu";
 import Search from "../search/Search";
 import Genre from "../genre/Genre";
@@ -32,7 +31,7 @@ export default function Navbar() {
 
 var pathname = usePathname(); 
 
-const { toggle, mode } = useContext(Context);
+const { mode } = useContext(Context);
 
 const session = useSession();
 
@@ -72,9 +71,8 @@ const toggleClick = () =>{
             <h1 className={`${pathname == "/" ? styles.nextflix : styles.nextflix2}`}>NEXTFLIX</h1>
         </Link>
         <div className={`${pathname == "/" ? styles.links : styles.links2}`}>
-
             {links.map(link => (
-                <Link key={link.id} href={link.url} className={ styles.link}  shallow>
+                <Link key={link.id} href={link.url} className={ styles.link} >
                     {link.title}
                 </Link>
             ))}
@@ -107,7 +105,7 @@ const toggleClick = () =>{
          )}
         
         </div>
-    </div>
+      </div>
     </div>
     
   )

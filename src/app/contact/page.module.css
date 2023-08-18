@@ -72,6 +72,7 @@
 
 .form {
   flex: 1;
+  width:50%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -81,6 +82,12 @@
 @media (max-width:860px) {
   .form{
     height:250px;
+  }
+}
+
+@media(max-width:755px){
+  .form{
+    height:300px;;
   }
 }
 
@@ -104,7 +111,7 @@
   border: none;
   outline: none;
   color: #bbb;
-  border: 3px solid #bbb;
+  border: 3px solid #50e6e8;
   font-size: 20px;
   font-weight: bold;
 }
@@ -118,4 +125,23 @@
     border-color: rgb(32, 110, 219);
   }
   
+
+  .btn{
+    padding: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #4ea77d;
+    border: 3px solid #50e6e8;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+  }
+
+  .btn:hover{
+    background-color: rgb(32, 110, 219);
+    color:white;
+  }
 

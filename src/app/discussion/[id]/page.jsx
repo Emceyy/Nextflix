@@ -4,62 +4,46 @@ import React, { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import useSWR from 'swr';
+import { Helmet } from "react-helmet";
+import { motion } from "framer-motion"
 
-async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    return notFound()
-  }
-
-  return res.json();
-}
-
-
-export async function generateMetadata({ params }) {
-  const post = await getData(params.id)
-  return {
-    title: post.title,
-    description: post.desc,
-  };
-}
 
 const DiscussionPost =  ({ params }) => {
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getData(params.id);
+const { data, error } = useSWR(`http://localhost:3000/api/posts/${params.id}`, async (url) => {
+  const res = await fetch(url);
 
-        setData(data);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
 
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
+  return res.json();
+}, {
+    revalidateIfStale: false, 
+    revalidateOnFocus: false, 
+    revalidateOnReconnect: false
+});
 
-        setLoading(false);
-      }
-    };
 
-    fetchData();
-  }, []);
 
+
+if (error) return <div className={styles.loading}>Failed to load</div>;
+  if (!data) return <div className={styles.loading}>Loading...</div>
+  
   return (
-    <div
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
      className={styles.Container}>
-      <div className={styles.dumb}></div>
-      {loading ? (
-        <div className={styles.loading}>
-          Loading...
-        </div>
-      ) : (
-        data && (
-          <div>
+     <Helmet>
+     <title>{data.title}</title>
+      <meta name="description" content={data.desc} />
+      <meta name="author" content={data.username} />
+      <meta name="date" content=  "2023"/>
+     </Helmet>
+      <div className={styles.dumb}></div>  
     <div className={styles.dumb}></div>
     <div className={styles.Container}>
       <div className={styles.top}>
@@ -97,11 +81,7 @@ const DiscussionPost =  ({ params }) => {
             <Image src="/../public/instagram.png" width={20} height={20} className={styles.icon} alt="instagram" />
           </div>
     </div>
-    </div>
-        )
-      )
-    }
-    </div>
+    </motion.div>
   );
     };
 

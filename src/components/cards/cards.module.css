@@ -5,6 +5,13 @@
   width: 100%;
   }
 
+  @media(max-width:680px){
+    .container{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
   @media (max-width: 517px) {
     .container {
       display: flex;
@@ -15,7 +22,6 @@
     
   }
   .notfound{
-    text-align: center;
-    font-size:300%;
+    font-size:200%;
     color:inherit;
   }

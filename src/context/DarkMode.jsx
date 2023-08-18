@@ -13,7 +13,7 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <Context.Provider value={{ toggle, mode }}>
-      <div className={`theme ${mode}`}>{children}</div>
+      <div className={`${mode}`}>{children}</div>
     </Context.Provider>
   );
 };

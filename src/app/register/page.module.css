@@ -6,6 +6,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  @media(max-width: 614px){
+    .dumb{
+      height: 150px;
+    }
+  }
   
   .form{
     width: 300px;
@@ -34,4 +40,8 @@
     border-radius: 5px;
     color: #eee;
     font-weight: bold;
+  }
+
+  .link:hover{
+    color: #53c28b;
   }

@@ -106,18 +106,16 @@ a {
   }
 }
 
-.theme{
-  transition: 1s all ease;
-}
-
 .light {
   background-color: white;
   color: black;
+  transition: 1s all ease;
 }
 
 .dark {
   background-color: #111;
   color:white;
+  transition: 1s all ease;
 }
 
 input::placeholder {
@@ -134,3 +132,32 @@ textarea::placeholder {
   padding: 0;
   margin: 0;
 }
+
+
+::-webkit-scrollbar {
+  width: 20px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-left: 4px solid #eaeaea; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333; 
+  border-radius: 10px; 
+  border: 3px solid #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #222222; 
+}
+
+
+* {
+  scrollbar-width: thin; 
+  scrollbar-color: #333333 #f1f1f1; 
+}
+
+
+

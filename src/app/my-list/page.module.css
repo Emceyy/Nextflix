@@ -20,8 +20,10 @@
 .listempty{
     font-size: 300%;
     display: flex;
+    opacity: 0;
     justify-content: center;
 }
+.listempty.show { opacity: 1; }
 
 @media(max-width: 614px){
     .dumb{

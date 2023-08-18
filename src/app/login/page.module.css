@@ -25,13 +25,13 @@
   }
 
   .title{
-    color: #bbb;
+    color: inherit;
   }
   
   .subtitle{
     font-size: 20px;
     margin: 30px;
-    color: #bbb;
+    color: inherit;
   }
   
   .form {

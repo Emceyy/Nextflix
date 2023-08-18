@@ -16,7 +16,7 @@ interface SearchAction {
 const INITIAL_STATE: State = {
     sortBy: 'popularity.desc',
     genre: '',
-    query: '',
+    query: '', 
 };
 
 const SearchReducer = (state: State, action: SearchAction) => {

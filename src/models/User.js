@@ -4,9 +4,9 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
-      unique: true,
+      unique: false,
       required: true,
     },
     email: {
@@ -18,6 +18,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    my_list:{
+      type: Array,
+      default: []
+    }
   },
   { timestamps: true }
 );

@@ -1,8 +1,12 @@
 "use client";
+
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion"
+import { Helmet } from "react-helmet";
+
 
 const Register = () => {
   const [error, setError] = useState(null);
@@ -11,7 +15,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const name = e.target[0].value;
+    const username = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
 
@@ -22,7 +26,7 @@ const Register = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
+          username,
           email,
           password,
         }),
@@ -35,7 +39,13 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+     className={styles.container}>
+     <Helmet>
+        <title>Register</title>
+     </Helmet>
     <div className={styles.dumb}></div>
       <h1 className={styles.title}>Create an Account</h1>
       <h2 className={styles.subtitle}>Please sign up to create movie list.</h2>
@@ -47,7 +57,7 @@ const Register = () => {
           className={styles.input}
         />
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           required
           className={styles.input}
@@ -65,7 +75,7 @@ const Register = () => {
       <Link className={styles.link} href="/login">
         Login with an existing account
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

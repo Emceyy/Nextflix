@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from "@/components/navbar/Navbar"
 import { ContextProvider } from "@/context/DarkMode";
-import { FavoriteContextProvider } from '@/context/FavoriteContext';
 import { SearchContextProvider } from '@/context/SearchContext';
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import Footer from "@/components/footer/Footer";
@@ -25,7 +24,6 @@ export default function RootLayout({
     <body className={inter.className}>
       <ContextProvider>
         <SearchContextProvider>
-          <FavoriteContextProvider>
             <AuthProvider>
               <div className='container'>
                 <Navbar />
@@ -33,7 +31,6 @@ export default function RootLayout({
                 <Footer />
               </div>
             </AuthProvider>
-          </FavoriteContextProvider>
         </SearchContextProvider>
       </ContextProvider>
     </body> 

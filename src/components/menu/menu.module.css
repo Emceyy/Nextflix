@@ -61,8 +61,6 @@
   
   .exit{
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     top:5%;
     left:5%;

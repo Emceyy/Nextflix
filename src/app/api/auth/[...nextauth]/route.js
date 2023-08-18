@@ -1,10 +1,10 @@
-import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from "next-auth/providers/credentials";
+
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
+import bcrypt from 'bcryptjs';
 import User from "@/models/User";
 import connect from "@/utils/db";
-import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
   providers: [
@@ -12,7 +12,7 @@ const handler = NextAuth({
       id: "credentials",
       name: "Credentials",
       async authorize(credentials) {
-      
+        
         await connect();
 
         try {
@@ -39,15 +39,46 @@ const handler = NextAuth({
         }
       },
     }),
+   
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
     }),
+    
   ],
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      if (account.provider === "google") {
+        
+        await connect();
+        
+        const existingUser = await User.findOne({ email: user.email });
+        if (existingUser) {
+         
+          return existingUser;
+        } else {
+
+          const hashedPassword = await bcrypt.hash(user.id, 5);
+        
+          const newUser = await User.create({
+            username: user.name,
+            email: user.email,
+           password: hashedPassword,
+          });
+          
+          return newUser;
+        }
+      }
+      return true;
+    },
+  },  
+  
   pages: {
     error: "/login",
   },
 
 });
+
+
 
 export { handler as GET, handler as POST };

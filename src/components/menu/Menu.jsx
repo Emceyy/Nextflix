@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./menu.module.css";
 import DarkMode from "../darkmode/DarkMode";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const Menu = ({ isClick }) => {
 
@@ -26,7 +26,7 @@ const Menu = ({ isClick }) => {
             <li>
               <a href="/contact">Contact</a>
             </li>
-            { session.status === "unauthenticated" && 
+            { session.status === "authenticated" && 
             (<li>
               <a href="/my-list">My List</a>
             </li>)

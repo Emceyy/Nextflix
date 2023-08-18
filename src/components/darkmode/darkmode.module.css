@@ -12,6 +12,10 @@
     margin-left:1.5%;
     background-color: #030303;
   }
+
+  .container:hover{
+    transform: scale(1.1);
+}
   
   .icon{
     font-size: 12px;

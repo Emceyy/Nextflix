@@ -1,19 +1,19 @@
+"use client"
+
 import React, { useContext } from 'react';
 import styles from './genre.module.css';
-import { Context } from '@/context/DarkMode';
 import { SearchContext } from '../../context/SearchContext';
-import Select from 'react-select';
 import { usePathname } from 'next/navigation';
+import Select from "react-select"; 
 
 
 export default function Genre() {
 
   var pathname = usePathname(); 
-  console.log(pathname);
+  
 
+  
   const { dispatch} = useContext(SearchContext);
-
-  const { mode } = useContext(Context); 
 
   
   const handleChange = (option) => {
@@ -23,7 +23,7 @@ export default function Genre() {
   };
 
   const customStyles = {
-    option: (provided, state) => ({
+    option: (provided) => ({
       ...provided,
       fontSize: 14,
       color:"black",
@@ -35,7 +35,7 @@ export default function Genre() {
   return (
     <div className={` ${pathname == "/" ? styles.container : styles.container2}`}>
       <Select
-        id="select"
+        id="react-select-3-live-region"
         onChange={handleChange}
         options={[
           { label: "Action", value: "28" },

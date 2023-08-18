@@ -4,11 +4,8 @@ import { SearchContext } from '../../context/SearchContext';
 import Image from 'next/image'
 import { usePathname } from 'next/navigation';
 
-export interface SearchProps {
-    className?: string;
-}
 
-const Search = ({ className }: SearchProps) => {
+const Search = () => {
 
     const pathname = usePathname(); 
     const [input, setInput] = useState('');
@@ -20,7 +17,7 @@ const Search = ({ className }: SearchProps) => {
         setInput("");
     };
     return (
-        <form className={`${className} ${pathname == "/" ? styles.container : styles.container2}`} onSubmit={handleSubmit}>
+        <form className={`${pathname == "/" ? styles.container : styles.container2}`} onSubmit={handleSubmit}>
             <input
                 value={input}
                 className={styles.inputcls}

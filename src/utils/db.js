@@ -8,6 +8,7 @@ const connect = async () => {
   }
 
   try {
+    mongoose.set('strictQuery', false);
     connection = await mongoose.connect(process.env.MONGO);
     return connection;
   } catch (error) {
