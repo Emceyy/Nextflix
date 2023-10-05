@@ -18,4 +18,4 @@ To run Nextflix locally, you need to have Node.js and MongoDB installed on your 
 
 ## Screenshots
 
-<img src="public/home-movies.png" width="600" height="300" /> <img src="public/discussion.png" width="600" height="300" /> <img src="public/contact.png" width="600" height="300" /> <img src="public/login.png" width="600" height="300" /> <img src="public/my-list.png" width="600" height="300" />
+<img src="public/home-movies.png" width="700" height="350" /> <img src="public/discussion.png" width="700" height="350" /> <img src="public/contact.png" width="700" height="350" /> <img src="public/login.png" width="700" height="350" /> <img src="public/my-list.png" width="700" height="350" />
